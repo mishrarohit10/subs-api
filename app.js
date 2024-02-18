@@ -6,7 +6,7 @@ require('dotenv').config()
 
 mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection
-
+ 
 app.use(express.json())
 
 db.on('error', (error) => {
@@ -21,3 +21,6 @@ app.listen(3000, () =>{
     console.log('Server Started at port 3000')
 });
 
+const subsRouter = require('./routes/subscribers')
+
+app.use('/',subsRouter)
