@@ -26,7 +26,7 @@ router.post('/', async(req,res) => {
     try {
         const newSubscriber = await Subscriber.save()
     } catch(err) {
-        res.status(500).json({message:err.message})
+        res.status(201).json({message:err.message})
     }
 })
 // update one
